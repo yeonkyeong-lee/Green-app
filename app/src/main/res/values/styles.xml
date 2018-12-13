@@ -5,6 +5,14 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/Green</item>
         <item name="colorPrimaryDark">@color/GreenDark</item>
+        <item name="android:colorAccent">@color/GreenDark</item>
+    </style>
+
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:colorControlNormal">@null</item>
+        <item name="android:colorControlActivated">@null</item>
+        <item name="android:textColorHint">@color/TextColorGray</item>
+        <item name="background">@null</item>
     </style>
 
 </resources>

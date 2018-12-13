@@ -48,8 +48,10 @@
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginBottom="84dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/Green"/>
+        android:backgroundTint="@color/Green"
+        app:borderWidth="0dp"
+        android:elevation="6dp"/>
 </android.support.constraint.ConstraintLayout>

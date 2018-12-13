@@ -2,11 +2,15 @@
 <resources>
     <color name="Green">#04C181</color>
     <color name="GreenDark">#089E6B</color>
+    <color name="GreenLight">#CCF2E5</color>
     <color name="Blue">#74B4FF</color>
     <color name="BlueDark">#4E85EC</color>
+
     <color name="TextColorGray">#858585</color>
     <color name="TextColor">#444444</color>
+
     <color name="Gray">#CDCFCB</color>
+    <color name="LightGray">#F7F7F7</color>
     <color name="White">#FFFFFF</color>
 
 

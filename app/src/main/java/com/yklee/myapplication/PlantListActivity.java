@@ -28,6 +28,7 @@ public class PlantListActivity extends Activity {
 
     void InitData() {
         // init data (temp before db connection)
+        // todo : get data from db
         mPlantList = new ArrayList<>();
         mPlantList.add(new PlantListItem("틸다", "틸란드시아 키아네아 ", 2));
         mPlantList.add(new PlantListItem("카스테라", "몬스테라", 14));

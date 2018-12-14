@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Green">
+
+    <!-- main content -->
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_gravity="bottom"
+        android:background="#eeffffff">
+
+    </android.support.design.widget.BottomNavigationView>
+    
+
+</FrameLayout>
+
+<!--
+bottom navigaion usage (from material design)
+1. Create a menu resource with up to 5 navigation targets (BottomNavigationView does not support more than 5 items).
+2. Lay out your BottomNavigationView below your content.
+3. Set the app:menu attribute on your BottomNavigationView to your menu resource.
+4. Listen for selection events using setOnNavigationItemSelectedListener(...).
+-->

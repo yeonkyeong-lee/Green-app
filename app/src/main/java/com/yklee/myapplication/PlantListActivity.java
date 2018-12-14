@@ -3,7 +3,6 @@ package com.yklee.myapplication;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -32,6 +31,5 @@ public class PlantListActivity extends Activity {
         mPlantList = new ArrayList<>();
         mPlantList.add(new PlantListItem("틸다", "틸란드시아 키아네아 ", 2));
         mPlantList.add(new PlantListItem("카스테라", "몬스테라", 14));
-
     }
 }

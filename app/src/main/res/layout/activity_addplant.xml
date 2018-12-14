@@ -47,7 +47,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="28dp"
-            android:background="@color/Gray"
+            android:background="@drawable/circular_profile"
             />
 
         <!-- input form -->
@@ -234,6 +234,35 @@
                 android:textColor="@color/TextColor"/>
         </LinearLayout>
         <!-- input form end -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/TextColor"
+            android:textStyle="bold"
+            android:letterSpacing="-0.05"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:text="기록할 메모들을 라벨로 설정해 주세요."/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <com.yklee.myapplication.TagView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tagName = "물준 날"
+                app:closeButton="false"/>
+
+            <com.yklee.myapplication.TagView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tagName = "사진"
+                app:closeButton="false" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 

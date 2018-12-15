@@ -9,8 +9,8 @@
     </style>
 
     <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
-        <item name="android:colorControlNormal">@null</item>
-        <item name="android:colorControlActivated">@null</item>
+        <item name="colorControlNormal">@color/Green</item>
+        <item name="colorControlActivated">@color/Green</item>
         <item name="android:textColorHint">@color/TextColorGray</item>
         <item name="background">@null</item>
     </style>

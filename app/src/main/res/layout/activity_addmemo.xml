@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/GreenDark">
+
+
+    <!--content-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@drawable/rounded_white_transparent"
+        android:layout_marginTop="8dp">
+        
+        <TextView
+            android:id="@+id/addMemo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:letterSpacing="-0.03"
+            android:textColor="@color/TextColor"
+            android:text="12월 1일의 기록"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.09"
+            android:textSize="12sp"
+            android:textColor="@color/TextColorGray"
+            android:layout_marginTop="2dp"
+            android:text="기록할 것이 없는 라벨은 X을 눌러 제거하세요."
+            />
+
+        <!-- tags underneath is temp data-->
+
+        <com.yklee.myapplication.TagView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:tagName="물준날">
+        </com.yklee.myapplication.TagView>
+
+        <com.yklee.myapplication.TagView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:tagName="기온">
+        </com.yklee.myapplication.TagView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="내용을 입력하세요."
+            android:textColor="@color/TextColor"
+            android:textColorHint="@color/TextColorGray"
+            android:theme="@style/EditTextStyle"/>
+
+
+
+    </LinearLayout>
+    <!--close button -->
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/close_grey_2x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--floating action button-->
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="84dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/Green"
+        app:borderWidth="0dp"
+        android:elevation="6dp"/>
+
+</android.support.constraint.ConstraintLayout>

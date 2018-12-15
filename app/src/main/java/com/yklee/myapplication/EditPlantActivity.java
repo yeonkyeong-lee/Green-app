@@ -6,25 +6,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
-import android.widget.TextView;
 
-public class AddPlantActivity extends Activity {
+public class EditPlantActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addplant);
+        setContentView(R.layout.activity_editplant);
 
         // find views
-        TextView cancelBtn = findViewById(R.id.addPlant_cancelBtn);
-        FloatingActionButton fab = findViewById(R.id.addPlant_FAB);
+        FloatingActionButton fab = findViewById(R.id.editPlant_FAB);
 
-        // click events
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ChangeActivity();
-            }
-        });
+        //click events
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,8 +25,9 @@ public class AddPlantActivity extends Activity {
             }
         });
     }
+
     void ChangeActivity() {
-        Intent intent = new Intent(AddPlantActivity.this, PlantListActivity.class);
+        Intent intent = new Intent(EditPlantActivity.this, PlantPagerActivity.class);
         startActivity(intent);
     }
     void SaveCurrData() {

@@ -219,6 +219,7 @@
     </ListView>
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/plantPage_FAB"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginBottom="84dp"

@@ -5,21 +5,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.PagerAdapter;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-public class AddPlantActivity extends Activity {
+public class AddMemoActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addplant);
+        setContentView(R.layout.activity_addmemo);
 
         // find views
-        TextView cancelBtn = findViewById(R.id.addPlant_cancelBtn);
-        FloatingActionButton fab = findViewById(R.id.addPlant_FAB);
+        ImageView closeBtn = findViewById(R.id.addMemo_closeBtn);
+        FloatingActionButton fab = findViewById(R.id.addMemo_FAB);
 
-        // click events
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
+        // click event
+        closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ChangeActivity();
@@ -28,13 +30,13 @@ public class AddPlantActivity extends Activity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SaveCurrData();
                 ChangeActivity();
             }
         });
+
     }
     void ChangeActivity() {
-        Intent intent = new Intent(AddPlantActivity.this, PlantListActivity.class);
+        Intent intent = new Intent(AddMemoActivity.this, PlantPagerActivity.class);
         startActivity(intent);
     }
     void SaveCurrData() {

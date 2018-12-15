@@ -17,12 +17,10 @@ import android.view.MenuItem;
 
 public class PlantPagerActivity extends FragmentActivity {
     int MAX_PAGE = 2;
-    Fragment curr_fragment = new Fragment();
 
     BottomNavigationView mBottomNavigationView;
     ViewPager mViewPager;
     PagerAdapter mPagerAdapter;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,8 +29,8 @@ public class PlantPagerActivity extends FragmentActivity {
 
         mBottomNavigationView = findViewById(R.id.bottomNavView);
         mViewPager = findViewById(R.id.plantViewPager);
-
         mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
+
         mViewPager.setAdapter(mPagerAdapter);
 
         // bottom nav click event
@@ -97,7 +95,7 @@ public class PlantPagerActivity extends FragmentActivity {
 
         @Override
         public int getCount() {
-            return 2;  // 총 2개의 page를 보여줍니다.
+            return MAX_PAGE;
         }
     }
 }

@@ -10,7 +10,7 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="214dp"
-        android:background="@drawable/rounded_white"
+        android:background="@drawable/bottomrounded_white"
         android:padding="16dp">
 
         <ImageView

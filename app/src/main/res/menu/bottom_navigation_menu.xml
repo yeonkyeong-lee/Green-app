@@ -6,10 +6,10 @@
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/nav_plant_deactive"
-        android:title="Plant" />
+        android:title="" />
     <item
         android:id="@+id/bottomNavBtn_calender"
         app:showAsAction="ifRoom"
         android:icon="@drawable/nav_calender_deactive"
-        android:title="Calender" />
+        android:title="" />
 </menu>

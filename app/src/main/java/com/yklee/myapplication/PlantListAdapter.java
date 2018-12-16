@@ -12,10 +12,10 @@ import java.util.ArrayList;
 
 public class PlantListAdapter extends BaseAdapter {
     private LayoutInflater inflater;
-    private ArrayList<PlantListItem> data;
+    private ArrayList<PlantItem> data;
     private int layout;
 
-    public PlantListAdapter(Context context, ArrayList<PlantListItem> data, int layout) {
+    public PlantListAdapter(Context context, ArrayList<PlantItem> data, int layout) {
         this.data = data;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layout = layout;
@@ -27,7 +27,7 @@ public class PlantListAdapter extends BaseAdapter {
     }
 
     @Override
-    public PlantListItem getItem(int i) {
+    public PlantItem getItem(int i) {
         return data.get(i);
     }
 
@@ -48,7 +48,7 @@ public class PlantListAdapter extends BaseAdapter {
         TextView bNameView = (TextView) view.findViewById(R.id.plantList_botanicalName);
         TextView waterDayView = (TextView) view.findViewById(R.id.plantList_nextWaterDay);
 
-        PlantListItem listItem = data.get(i);
+        PlantItem listItem = data.get(i);
 
         nameView.setText(listItem.getName());
         bNameView.setText(listItem.getBotanicalName());

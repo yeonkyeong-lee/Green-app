@@ -1,7 +1,6 @@
 package com.yklee.myapplication;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
 public class PlantMainFragment extends Fragment {
     public static PlantMainFragment newInstance() {
@@ -23,7 +22,7 @@ public class PlantMainFragment extends Fragment {
 
     ListView mListView;
     MemoListAdapter mAdapter;
-    ArrayList<MemoListItem> mMemoList;
+    PlantItem mPlantItem;
 
     @Nullable
     @Override
@@ -39,7 +38,7 @@ public class PlantMainFragment extends Fragment {
         ImageView profile = v.findViewById(R.id.plantPage_profile);
 
         // create and set list adapter
-        mAdapter = new MemoListAdapter(this.getActivity(), mMemoList, R.layout.listitem_memolist);
+        mAdapter = new MemoListAdapter(this.getActivity(), mPlantItem.getMemos(), R.layout.listitem_memolist);
         mListView.setAdapter(mAdapter);
 
         // click events
@@ -71,17 +70,9 @@ public class PlantMainFragment extends Fragment {
     void InitData() {
         // init data (temp before db connection)
         // todo : get data from db
-        mMemoList = new ArrayList<>();
-        mMemoList.add(new MemoListItem("메모", "메모내용 1", "하루 전"));
-        mMemoList.add(new MemoListItem("기온", "메모내용 2", "2일 전"));
-        mMemoList.add(new MemoListItem("기온", "메모내용 3", "2일 전"));
-        mMemoList.add(new MemoListItem("기온", "메모내용 4", "2일 전"));
-        mMemoList.add(new MemoListItem("기온", "메모내용 5", "2일 전"));
-        mMemoList.add(new MemoListItem("기온", "메모내용 6", "2일 전"));
-        mMemoList.add(new MemoListItem("기온", "메모내용 7", "2일 전"));
-        mMemoList.add(new MemoListItem("기온", "메모내용 8", "2일 전"));
-        mMemoList.add(new MemoListItem("기온", "메모내용 9", "2일 전"));
-        mMemoList.add(new MemoListItem("기온", "메모내용 10", "2일 전"));
+        mPlantItem = new PlantItem("식물 이름", "학명");
+        mPlantItem.AddMemo(new MemoItem("메모", new Date(), "내용"));
+        mPlantItem.AddMemo(new MemoItem("메모2", new Date(), "내용2"));
     }
 
     void ChangeActivity_toList() {

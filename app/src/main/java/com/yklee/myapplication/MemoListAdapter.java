@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public class MemoListAdapter extends BaseAdapter {
     private LayoutInflater inflater;
-    private ArrayList<MemoListItem> data;
+    private ArrayList<MemoItem> data;
 
-    public MemoListAdapter(Context context, ArrayList<MemoListItem> data, int layout) {
+    public MemoListAdapter(Context context, ArrayList<MemoItem> data, int layout) {
         this.data = data;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -24,7 +24,7 @@ public class MemoListAdapter extends BaseAdapter {
     }
 
     @Override
-    public MemoListItem getItem(int i) {
+    public MemoItem getItem(int i) {
         return data.get(i);
     }
 
@@ -45,11 +45,11 @@ public class MemoListAdapter extends BaseAdapter {
         TextView contentView = (TextView) view.findViewById(R.id.memoList_contents);
         TextView dateView = (TextView) view.findViewById(R.id.memoList_date);
 
-        MemoListItem listItem = data.get(i);
+        MemoItem listItem = data.get(i);
 
         tagView.setText(listItem.getTagName());
         contentView.setText(listItem.getContent());
-        dateView.setText(listItem.getDate());
+        dateView.setText(listItem.getStringDate());
 
         return view;
     }

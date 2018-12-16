@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class PlantListActivity extends Activity {
     ListView mListView;
-    ArrayList<PlantListItem> mPlantList;
+    ArrayList<PlantItem> mPlantList;
     PlantListAdapter mAdapter;
 
     @Override
@@ -54,8 +54,8 @@ public class PlantListActivity extends Activity {
         // init data (temp before db connection)
         // todo : get data from db
         mPlantList = new ArrayList<>();
-        mPlantList.add(new PlantListItem("틸다", "틸란드시아 키아네아 ", 2));
-        mPlantList.add(new PlantListItem("카스테라", "몬스테라", 14));
+        mPlantList.add(new PlantItem("틸다", "틸란드시아 키아네아 "));
+        mPlantList.add(new PlantItem("카스테라", "몬스테라"));
     }
 
     void ChangeActivity() {

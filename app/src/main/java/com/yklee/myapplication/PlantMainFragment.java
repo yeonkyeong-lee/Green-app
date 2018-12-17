@@ -25,7 +25,11 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import org.w3c.dom.Text;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 public class PlantMainFragment extends Fragment {
@@ -46,7 +50,7 @@ public class PlantMainFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         selectedPlant = getArguments().getInt("selected item");
-
+        mPlantItem = firebaseHandler.PlantList.get(selectedPlant);
     }
 
     @Nullable
@@ -63,14 +67,30 @@ public class PlantMainFragment extends Fragment {
         TextView bNameView = v.findViewById(R.id.plantPage_bName);
         TextView avgCycleView = v.findViewById(R.id.plantPage_cycleText);
 
-        nameView.setText(firebaseHandler.PlantList.get(selectedPlant).getName());
-        bNameView.setText(firebaseHandler.PlantList.get(selectedPlant).getBotanicalName());
-        String avgCycleText = firebaseHandler.PlantList.get(selectedPlant).getAverageCycle() + "일";
+        nameView.setText(mPlantItem.getName());
+        bNameView.setText(mPlantItem.getBotanicalName());
+        String avgCycleText = mPlantItem.getAverageCycle() + "일";
         avgCycleView.setText(avgCycleText);
 
+
+        // sort memoItemsList by date
+        Comparator<MemoItem> dateAsc  = new Comparator<MemoItem>() {
+            @Override
+            public int compare(MemoItem memo1, MemoItem memo2) {
+                int res ;
+                Date d1 = memo1.getDate();
+                Date d2 = memo2.getDate();
+                Long diff = d1.getTime() - d2.getTime();
+                if(diff > 0 ) res = -1;
+                else if(diff == 0) res = 0;
+                else res = 1;
+                return res;
+            }
+        };
+        Collections.sort(mPlantItem.getMemos(), dateAsc);
         // create and set list adapter
-//        mAdapter = new MemoListAdapter(this.getActivity(), mPlantItem.getMemos(), R.layout.listitem_memolist);
-//        mListView.setAdapter(mAdapter);
+        mAdapter = new MemoListAdapter(this.getActivity(), mPlantItem.getMemos(), R.layout.listitem_memolist);
+        mListView.setAdapter(mAdapter);
 
         // click events
         navIcon.setOnClickListener(new View.OnClickListener() {

@@ -47,7 +47,7 @@ public class MemoListAdapter extends BaseAdapter {
 
         MemoItem listItem = data.get(i);
 
-        tagView.setText(listItem.getTagName());
+        tagView.setText(listItem.getTagName().replace("tag_", ""));
         contentView.setText(listItem.getContent());
         dateView.setText(listItem.getStringDate());
 

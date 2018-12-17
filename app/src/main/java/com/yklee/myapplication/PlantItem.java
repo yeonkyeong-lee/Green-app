@@ -1,9 +1,8 @@
 package com.yklee.myapplication;
 
-import android.view.MenuItem;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class PlantItem {
@@ -12,13 +11,12 @@ public class PlantItem {
     private String bName; // botanical name
     private LocalDate nextWaterDay; // days to be left until next day to water
     private LocalDate averageWaterDay;
-    private LocalDate firstDay;
-    private LocalDate lastWaterDay;
+    private Date firstDay;
+    private Date lastWaterDay;
     private ArrayList<MemoItem> memos;
     private ArrayList<String> tags;
     private int averageCycle;
     private String DBid;
-
 
     public PlantItem(){
 
@@ -45,10 +43,10 @@ public class PlantItem {
     public LocalDate getAverageWaterDay() {
         return this.averageWaterDay;
     }
-    public LocalDate getFirstDay() {
+    public Date getFirstDay() {
         return this.firstDay;
     }
-    public LocalDate getLastWaterDay() {
+    public Date getLastWaterDay() {
         return this.lastWaterDay;
     }
     public ArrayList<MemoItem> getMemos() { return this.memos; }
@@ -72,8 +70,8 @@ public class PlantItem {
     public void setBotanicalName(String bName){this.bName = bName;}
     public void setNextWaterDay(LocalDate date){this.nextWaterDay = date;}
     public void setAverageWaterDay(LocalDate date){this.averageWaterDay = date;}
-    public void setFirstDay(LocalDate date){this.firstDay = date;}
-    public void setLastWaterDay(LocalDate date){this.lastWaterDay = date;}
+    public void setFirstDay(Date date){this.firstDay = date;}
+    public void setLastWaterDay(Date date){this.lastWaterDay = date;}
     public void setMemos(ArrayList<MemoItem> memos){this.memos = memos;}
     public void setMemoItem(MemoItem item){this.memos.add(item);}
     public void setTags(ArrayList<String> tags){this.tags = tags;}

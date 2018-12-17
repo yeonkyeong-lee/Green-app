@@ -16,7 +16,9 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.gson.JsonObject;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Array;
@@ -28,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class firebaseHandler {
@@ -36,11 +39,11 @@ public class firebaseHandler {
 
     public static final String DB_COL_PLANTS = "plants";
     public static final String DB_FIELD_NAME = "name";
-    public static final String DB_FIELD_BNAME = "bName";
+    public static final String DB_FIELD_BNAME = "botanicalName";
     public static final String DB_FIELD_FIRSTDAY = "firstDay";
     public static final String DB_FIELD_LASTWATERDAY = "lastWaterDay";
     public static final String DB_FIELD_AVERAGECYCLE = "averageCycle";
-    public static final String DB_FIELD_TAGNAMES = "tagNames";
+    public static final String DB_FIELD_TAGNAMES = "tags";
 
     public static ArrayList<PlantItem> PlantList;
     public static HashMap<String, String> tagRawData = new HashMap<>();
@@ -75,20 +78,33 @@ public class firebaseHandler {
                                 ArrayList<String> tags = StringToArray(document.getData().get(DB_FIELD_TAGNAMES).toString());
                                 // tag이름에 따라 메모 내용 가져오기
                                 ArrayList<MemoItem> memos = new ArrayList<>();
-                                for (int i =1 ;i < tags.size(); i ++) { //tag[0] is always tag_물준날
+                                //tags[0]관련 데이터가 없으면 만들기 (tag_물준날)
+                                if(document.getData().get(tags.get(0)) == null) {
+                                    DocumentReference docRef = db.collection(DB_COL_PLANTS).document(document.getId());
+                                    docRef.update(tags.get(0), Arrays.asList(lastWaterDay));
+                                }
+                                for (int i = 1 ;i < tags.size(); i ++) { //tag[0] is always tag_물준날
                                     Log.d("green tag", tags.get(i));
-                                    String rawData = document.getData().get(tags.get(i)).toString();
-                                    ArrayList<MemoItem> memos_item = StringToMemos(rawData, tags.get(i));
-                                    memos.addAll(memos_item);
 
-                                    tagRawData.put(tags.get(i), rawData);
+                                    if(document.getData().get(tags.get(i)) == null) {
+
+                                    }
+                                    else {
+                                        String rawData = document.getData().get(tags.get(i)).toString();
+                                        ArrayList<MemoItem> memos_item = StringToMemos(rawData, tags.get(i));
+                                        memos.addAll(memos_item);
+                                        tagRawData.put(tags.get(i), rawData);
+                                    }
+
+
+
                                 }
 
                                 PlantItem item = new PlantItem(name, bName);
                                 item.setAverageCycle(avgCycle);
                                 item.setDBid(id);
-                                item.setFirstDay(firstDay_date);
-                                item.setLastWaterDay(lastWaterDay_date);
+                                item.setFirstDay(firstDay);
+                                item.setLastWaterDay(lastWaterDay);
                                 item.setTags(tags);
                                 item.setMemos(memos);
 
@@ -101,11 +117,20 @@ public class firebaseHandler {
 
     public static void addMemoItem(String dbID, String tagName, String date, String content) {
         String prevData = tagRawData.get(tagName);
-        prevData = prevData.substring(0, prevData.length()-1);
-        String putData = prevData + ", " + date + "=" + content + "}";
-        DocumentReference docRef = db.collection(DB_COL_PLANTS).document(dbID);
+        if(prevData == null) {
+            String putData = "{" + date + "=" + content + "}";
+            DocumentReference docRef = db.collection(DB_COL_PLANTS).document(dbID);
 
-        docRef.update(tagName, putData);
+            docRef.update(tagName, putData);
+
+        } else {
+            prevData = prevData.substring(0, prevData.length()-1);
+            String putData = prevData + ", " + date + "=" + content + "}";
+            DocumentReference docRef = db.collection(DB_COL_PLANTS).document(dbID);
+
+            docRef.update(tagName, putData);
+        }
+
 
     }
     static ArrayList<String> StringToArray(String input) {

@@ -1,10 +1,5 @@
 package com.yklee.myapplication;
-
-import android.provider.ContactsContract;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class PlantItem {
@@ -13,12 +8,13 @@ public class PlantItem {
     private String bName; // botanical name
     private int nextWaterDay; // days to be left until next day to water
     private int averageWaterDay;
-    private Date firstDay;
-    private Date lastWaterDay;
-    private ArrayList<MemoItem> memos;
-    private ArrayList<String> tags;
+    private String firstDay;
+    private String lastWaterDay;
+    private ArrayList<MemoItem> memos = new ArrayList<>();
+    private ArrayList<String> tags = new ArrayList<>();
     private int averageCycle;
     private String DBid;
+
 
     public PlantItem(){
 
@@ -28,12 +24,14 @@ public class PlantItem {
         this.bName = bName;
     }
 
-    public PlantItem(String name, String bName, int averageWaterDay, Date firstDay, Date lastWaterDay) {
+    public PlantItem(String name, String bName, int averageWaterDay, String firstDay, String lastWaterDay) {
         this.name = name;
         this.bName = bName;
         this.averageWaterDay = averageWaterDay;
         this.firstDay = firstDay;
         this.lastWaterDay = lastWaterDay;
+
+        tags.add("tag_물준날");
 //        memos = new ArrayList<>();
     }
 
@@ -51,10 +49,10 @@ public class PlantItem {
     public int getAverageWaterDay() {
         return this.averageWaterDay;
     }
-    public Date getFirstDay() {
+    public String getFirstDay() {
         return this.firstDay;
     }
-    public Date getLastWaterDay() {
+    public String getLastWaterDay() {
         return this.lastWaterDay;
     }
     public ArrayList<MemoItem> getMemos() { return this.memos; }
@@ -78,8 +76,8 @@ public class PlantItem {
     public void setBotanicalName(String bName){this.bName = bName;}
     public void setNextWaterDay(int day){this.nextWaterDay = day;}
     public void setAverageWaterDay(int day){this.averageWaterDay = day;}
-    public void setFirstDay(Date date){this.firstDay = date;}
-    public void setLastWaterDay(Date date){this.lastWaterDay = date;}
+    public void setFirstDay(String date){this.firstDay = date;}
+    public void setLastWaterDay(String date){this.lastWaterDay = date;}
     public void setMemos(ArrayList<MemoItem> memos){this.memos = memos;}
     public void setMemoItem(MemoItem item){this.memos.add(item);}
     public void setTags(ArrayList<String> tags){this.tags = tags;}

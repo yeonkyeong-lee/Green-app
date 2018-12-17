@@ -16,11 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddMemoActivity"></activity>
+        <activity android:name=".AddPlantActivity"></activity>
+
+        <activity android:name=".DatabaseActivity"></activity>
+        <activity android:name=".EditPlantActivity"></activity>
+
         <activity android:name=".PlantListActivity"></activity>
         <activity android:name=".PlantPagerActivity"></activity>
-        <activity android:name=".AddPlantActivity"></activity>
-        <activity android:name=".AddMemoActivity"></activity>
-        <activity android:name=".EditPlantActivity"></activity>
+
     </application>
 
 

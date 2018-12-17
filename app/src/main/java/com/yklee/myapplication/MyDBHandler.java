@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.os.Build;
+import java.util.Date;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,20 +17,20 @@ public class MyDBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "plantDB.db";
     public static final String TABLE_PLANTS = "plants";
 
-    private static LocalDate nextDay;
-    private static LocalDate averageDay;
-    private static LocalDate firstDay;
-    private static LocalDate lastDay;
+    private static Date nextDay;
+    private static Date averageDay;
+    private static Date firstDay;
+    private static Date lastDay;
     private static ArrayList<MemoItem> memos;
     private static ArrayList<String> tags;
 
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_PLANTNAME = "plantName";
     private static final String COLUMN_B_PLANTNAME = "b_plantName";
-    private static final LocalDate COLUMN_NEXTDAY = nextDay;
-    private static final LocalDate COLUMN_AVERAGEDAY = averageDay;
-    private static final LocalDate COLUMN_FIRSTDAY = firstDay;
-    private static final LocalDate COLUMN_LASTDAY = lastDay;
+    private static final Date COLUMN_NEXTDAY = nextDay;
+    private static final Date COLUMN_AVERAGEDAY = averageDay;
+    private static final Date COLUMN_FIRSTDAY = firstDay;
+    private static final Date COLUMN_LASTDAY = lastDay;
     private static final ArrayList<MemoItem> COLUMN_MEMOS = memos;
     private static final ArrayList<String> COLUMN_TAGS = tags;
 
@@ -77,7 +78,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
             plant.setID(Integer.parseInt(cursor.getString(0)));
             plant.setName(cursor.getString(1));
             plant.setBotanicalName(cursor.getString(2));
-            plant.setNextWaterDay(LocalDate.parse(cursor.getString(3)));
+//            plant.setNextWaterDay(Date.parse(cursor.getString(3)));
             cursor.close();
         }
         else {

@@ -1,5 +1,7 @@
 package com.yklee.myapplication;
 
+import android.provider.ContactsContract;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,8 +11,8 @@ public class PlantItem {
     private int id;
     private String name;
     private String bName; // botanical name
-    private LocalDate nextWaterDay; // days to be left until next day to water
-    private LocalDate averageWaterDay;
+    private int nextWaterDay; // days to be left until next day to water
+    private int averageWaterDay;
     private Date firstDay;
     private Date lastWaterDay;
     private ArrayList<MemoItem> memos;
@@ -21,12 +23,18 @@ public class PlantItem {
     public PlantItem(){
 
     }
-
     public PlantItem(String name, String bName) {
         this.name = name;
         this.bName = bName;
-       // this.NextWaterDay = NextWaterDay;
-        memos = new ArrayList<>();
+    }
+
+    public PlantItem(String name, String bName, int averageWaterDay, Date firstDay, Date lastWaterDay) {
+        this.name = name;
+        this.bName = bName;
+        this.averageWaterDay = averageWaterDay;
+        this.firstDay = firstDay;
+        this.lastWaterDay = lastWaterDay;
+//        memos = new ArrayList<>();
     }
 
     /*--- getter ---*/
@@ -37,10 +45,10 @@ public class PlantItem {
     public String getBotanicalName() {
         return this.bName;
     }
-    public LocalDate getNextWaterDay() {
+    public int getNextWaterDay() {
         return this.nextWaterDay;
     }
-    public LocalDate getAverageWaterDay() {
+    public int getAverageWaterDay() {
         return this.averageWaterDay;
     }
     public Date getFirstDay() {
@@ -68,8 +76,8 @@ public class PlantItem {
     public void setID(int id){ this.id = id;}
     public void setName(String name){ this.name = name;}
     public void setBotanicalName(String bName){this.bName = bName;}
-    public void setNextWaterDay(LocalDate date){this.nextWaterDay = date;}
-    public void setAverageWaterDay(LocalDate date){this.averageWaterDay = date;}
+    public void setNextWaterDay(int day){this.nextWaterDay = day;}
+    public void setAverageWaterDay(int day){this.averageWaterDay = day;}
     public void setFirstDay(Date date){this.firstDay = date;}
     public void setLastWaterDay(Date date){this.lastWaterDay = date;}
     public void setMemos(ArrayList<MemoItem> memos){this.memos = memos;}

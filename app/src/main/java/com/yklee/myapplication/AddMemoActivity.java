@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class AddMemoActivity extends Activity {
@@ -42,4 +43,6 @@ public class AddMemoActivity extends Activity {
     void SaveCurrData() {
 
     }
+
+
 }

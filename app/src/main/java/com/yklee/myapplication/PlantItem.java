@@ -16,6 +16,9 @@ public class PlantItem {
     private LocalDate lastWaterDay;
     private ArrayList<MemoItem> memos;
     private ArrayList<String> tags;
+    private int averageCycle;
+    private String DBid;
+
 
     public PlantItem(){
 
@@ -55,6 +58,14 @@ public class PlantItem {
     public ArrayList<String> getTags(){return this.tags;}
     public String getTagItem(int i){return this.tags.get(i);}
 
+    public int getAverageCycle() {
+        return averageCycle;
+    }
+
+    public String getDBid() {
+        return DBid;
+    }
+
     /*-- setter --*/
     public void setID(int id){ this.id = id;}
     public void setName(String name){ this.name = name;}
@@ -67,4 +78,6 @@ public class PlantItem {
     public void setMemoItem(MemoItem item){this.memos.add(item);}
     public void setTags(ArrayList<String> tags){this.tags = tags;}
     public void setTagItem(String item){this.tags.add(item);}
+    public void setAverageCycle(int cycle){this.averageCycle = cycle;}
+    public void setDBid(String DBid) {this.DBid = DBid;}
 }

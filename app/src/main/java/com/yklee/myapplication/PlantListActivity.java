@@ -3,6 +3,7 @@ package com.yklee.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
@@ -12,8 +13,9 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class PlantListActivity extends Activity {
+
     ListView mListView;
-    ArrayList<PlantItem> mPlantList;
+    public static ArrayList<PlantItem> mPlantList;
     PlantListAdapter mAdapter;
 
     @Override
@@ -21,7 +23,7 @@ public class PlantListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plantlist);
 
-        InitData();
+        mPlantList = firebaseHandler.PlantList;
 
         //find views
         mListView = (ListView) findViewById(R.id.plantListView);
@@ -36,30 +38,25 @@ public class PlantListActivity extends Activity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(PlantListActivity.this, PlantPagerActivity.class);
-                intent.putExtra("selected item", i);
-                startActivity(intent);
+                ChangeActivity_PlantList(i);
             }
         });
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChangeActivity();
+                ChangeActivity_AddPlant();
             }
         });
     }
 
-    void InitData() {
-        // init data (temp before db connection)
-        // todo : get data from db
-        mPlantList = new ArrayList<>();
-        mPlantList.add(new PlantItem("틸다", "틸란드시아 키아네아 "));
-        mPlantList.add(new PlantItem("카스테라", "몬스테라"));
-    }
-
-    void ChangeActivity() {
+    void ChangeActivity_AddPlant() {
         Intent intent = new Intent(PlantListActivity.this, AddPlantActivity.class);
+        startActivity(intent);
+    }
+    void ChangeActivity_PlantList(int idx) {
+        Intent intent = new Intent(PlantListActivity.this, PlantPagerActivity.class);
+        intent.putExtra("selected item", idx);
         startActivity(intent);
     }
 }

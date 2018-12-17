@@ -97,7 +97,11 @@ public class PlantPagerActivity extends FragmentActivity {
             // instantiate corresponding fragment
             switch (position) {
                 case 0 :
-                    return PlantMainFragment.newInstance();
+                    PlantMainFragment frag = new PlantMainFragment();
+                    Bundle bundle = new Bundle(1);
+                    bundle.putInt("selected item", selectedPlant);
+                    frag.setArguments(bundle);
+                    return frag;
                 case 1 :
                     return CalenderFragment.newInstance();
 

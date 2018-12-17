@@ -52,7 +52,8 @@ public class PlantListAdapter extends BaseAdapter {
 
         nameView.setText(listItem.getName());
         bNameView.setText(listItem.getBotanicalName());
-        String wDay = String.valueOf(listItem.getNextWaterDay()) + "일 후 ";
+       // String wDay = String.valueOf(listItem.getNextWaterDay()) + "일 후 ";
+        String wDay = String.valueOf(listItem.getAverageWaterDay()) + "일 후";
         waterDayView.setText(wDay);
 
         return view;

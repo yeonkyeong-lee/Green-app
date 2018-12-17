@@ -168,6 +168,17 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
+            <TextView
+                android:id="@+id/editPlant_addLabelBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_gray_30dp"
+                android:hint="라벨 추가"
+                android:textColorHint="@color/White"
+                android:textStyle="bold"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"/>
+
 
         </com.nex3z.flowlayout.FlowLayout>
 

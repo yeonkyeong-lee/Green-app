@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
@@ -68,31 +69,38 @@ public class AddPlantActivity extends AppCompatActivity {
                 EditText firstDay = (EditText)findViewById(R.id.addPlant_firstDay);
                 EditText lastWaterDay = (EditText)findViewById(R.id.addPlant_lastWaterDay);
 
-                String s_name = name.getText().toString();
-                String s_bName = bName.getText().toString();
-                //int variable
-                int i_avgDay = Integer.parseInt(averageDay.getText().toString());
-                String s_fDay = firstDay.getText().toString();
-                String s_lDay = lastWaterDay.getText().toString();
+                boolean isAllTextSet = !name.getText().toString().equals("") && !bName.getText().toString().equals("") && !averageDay.getText().toString().equals("") && !firstDay.getText().toString().equals("") && !lastWaterDay.getText().toString().equals("");
 
-                // make constructor
-                final PlantItem plant = new PlantItem(s_name, s_bName, i_avgDay, s_fDay, s_lDay);
-                final FirebaseFirestore db = FirebaseFirestore.getInstance();
+                if(isAllTextSet) {
+                    String s_name = name.getText().toString();
+                    String s_bName = bName.getText().toString();
+                    //int variable
+                    int i_avgDay = Integer.parseInt(averageDay.getText().toString());
+                    String s_fDay = firstDay.getText().toString();
+                    String s_lDay = lastWaterDay.getText().toString();
 
-                // set tags
-                FlowLayout tagWrap = findViewById(R.id.addPlant_tagWrap);
-                if(tagWrap.getChildCount() > INITIAL_TAG_COUNT) {
-                    for (int i = 2; i < tagWrap.getChildCount(); i ++) {
-                        TagView tag = (TagView) tagWrap.getChildAt(i);
-                        String tagName = tag.getTag().toString();
-                        tagName = "tag_" + tagName;
-                        plant.setTagItem(tagName);
+                    // make constructor
+                    final PlantItem plant = new PlantItem(s_name, s_bName, i_avgDay, s_fDay, s_lDay);
+                    final FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                    // set tags
+                    FlowLayout tagWrap = findViewById(R.id.addPlant_tagWrap);
+                    if(tagWrap.getChildCount() > INITIAL_TAG_COUNT) {
+                        for (int i = 2; i < tagWrap.getChildCount(); i ++) {
+                            TagView tag = (TagView) tagWrap.getChildAt(i);
+                            String tagName = tag.getTag().toString();
+                            tagName = "tag_" + tagName;
+                            plant.setTagItem(tagName);
+                        }
                     }
+
+                    db.collection("plants").add(plant);
+                    firebaseHandler.PlantList.add(plant);
+                    ChangeActivity();
+                } else  {
+                    Toast.makeText(getApplicationContext(), "모든 내용을 다 채워주세요.", Toast.LENGTH_LONG).show();
                 }
 
-                db.collection("plants").add(plant);
-                firebaseHandler.PlantList.add(plant);
-                ChangeActivity();
             }
         });
     }
@@ -114,7 +122,7 @@ public class AddPlantActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         String ret = edittext.getText().toString();
                         FlowLayout tagWrap = findViewById(R.id.addPlant_tagWrap);
-                        TagView tag = createTagInView(ret, true);
+                        TagView tag = createTagInView(ret, false);
                         tag.setTag(ret);
                         tagWrap.addView(tag);
                     }

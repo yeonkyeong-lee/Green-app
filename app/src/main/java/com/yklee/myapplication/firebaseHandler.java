@@ -44,6 +44,7 @@ public class firebaseHandler {
     public static final String DB_FIELD_LASTWATERDAY = "lastWaterDay";
     public static final String DB_FIELD_AVERAGECYCLE = "averageCycle";
     public static final String DB_FIELD_TAGNAMES = "tags";
+    public static final String DB_FIELD_AVERAGEWATERDAY = "averageWaterDay";
 
     public static ArrayList<PlantItem> PlantList;
     public static HashMap<String, String> tagRawData = new HashMap<>();
@@ -65,6 +66,7 @@ public class firebaseHandler {
                                 String name = document.getData().get(DB_FIELD_NAME).toString();
                                 String bName = document.getData().get(DB_FIELD_BNAME).toString();
                                 int avgCycle = Integer.parseInt(document.getData().get(DB_FIELD_AVERAGECYCLE).toString());
+                                int avgWaterDay = Integer.parseInt(document.getData().get(DB_FIELD_AVERAGEWATERDAY).toString());
                                 String firstDay = document.getData().get(DB_FIELD_FIRSTDAY).toString();
                                 String lastWaterDay = document.getData().get(DB_FIELD_LASTWATERDAY).toString();
                                 Date firstDay_date = new Date();
@@ -102,6 +104,7 @@ public class firebaseHandler {
 
                                 PlantItem item = new PlantItem(name, bName);
                                 item.setAverageCycle(avgCycle);
+                                item.setAverageWaterDay(avgWaterDay);
                                 item.setDBid(id);
                                 item.setFirstDay(firstDay);
                                 item.setLastWaterDay(lastWaterDay);

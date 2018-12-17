@@ -246,7 +246,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="16dp"
             android:text="기록할 메모들을 라벨로 설정해 주세요."/>
-        <RelativeLayout
+        <com.nex3z.flowlayout.FlowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
@@ -262,8 +262,38 @@
                 android:layout_height="wrap_content"
                 app:tagName = "사진"
                 app:closeButton="false" />
+            <com.yklee.myapplication.TagView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tagName = "사진"
+                app:closeButton="false" />
+            <com.yklee.myapplication.TagView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tagName = "사진"
+                app:closeButton="false" />
+            <com.yklee.myapplication.TagView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tagName = "사진"
+                app:closeButton="false" />
+            <com.yklee.myapplication.TagView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tagName = "사진"
+                app:closeButton="false" />
+            <com.yklee.myapplication.TagView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tagName = "사진"
+                app:closeButton="false" />
+            <com.yklee.myapplication.TagView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tagName = "사진"
+                app:closeButton="false" />
 
-        </RelativeLayout>
+        </com.nex3z.flowlayout.FlowLayout>
 
     </LinearLayout>
 

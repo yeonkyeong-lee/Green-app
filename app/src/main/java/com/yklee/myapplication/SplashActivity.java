@@ -13,11 +13,11 @@ public class SplashActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
-
+        firebaseHandler.getAllData();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                firebaseHandler.getAllData();
+
                 Intent intent = new Intent(SplashActivity.this, PlantListActivity.class);
                 startActivity(intent);
             }

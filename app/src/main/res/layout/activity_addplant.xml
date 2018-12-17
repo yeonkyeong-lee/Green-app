@@ -49,6 +49,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="28dp"
             android:background="@drawable/circular_profile"
+            android:visibility="invisible"
             />
 
         <!-- input form -->
@@ -285,7 +286,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:backgroundTint="@color/Green"
         app:borderWidth="0dp"
-        android:elevation="6dp"/>
+        android:elevation="6dp"
+        android:src="@drawable/check_white"
+        android:scaleType="center"/>
 
 
 </android.support.constraint.ConstraintLayout>

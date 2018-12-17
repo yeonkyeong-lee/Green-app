@@ -66,12 +66,13 @@ public class PlantMainFragment extends Fragment {
         TextView nameView = v.findViewById(R.id.plantPage_Name);
         TextView bNameView = v.findViewById(R.id.plantPage_bName);
         TextView avgCycleView = v.findViewById(R.id.plantPage_cycleText);
+        View verticalLine = v.findViewById(R.id.plantPage_verticalLine);
 
         nameView.setText(mPlantItem.getName());
         bNameView.setText(mPlantItem.getBotanicalName());
-        String avgCycleText = mPlantItem.getAverageCycle() + "일";
+        String avgCycleText = mPlantItem.getAverageWaterDay() + "일";
         avgCycleView.setText(avgCycleText);
-
+        if(mPlantItem.getMemos().size() <= 0) verticalLine.setVisibility(View.GONE);
 
         // sort memoItemsList by date
         Comparator<MemoItem> dateAsc  = new Comparator<MemoItem>() {

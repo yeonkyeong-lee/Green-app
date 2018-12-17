@@ -28,7 +28,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:letterSpacing="-0.08"
             android:text=""
             android:textColor="@color/TextColor"
             android:textSize="24sp"
@@ -42,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:letterSpacing="-0.06"
             android:text=""
             android:textColor="@color/TextColor"
             android:textSize="18sp"
@@ -129,7 +127,7 @@
                     android:id="@+id/plantPage_nextDayText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2일 후"
+                    android:text="N일 후"
                     android:textColor="@color/BlueDark"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -160,7 +158,7 @@
                     android:id="@+id/plantPage_daysText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4개월 째"
+                    android:text="N개월 째"
                     android:textColor="@color/GreenDark"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -196,6 +194,7 @@
     </LinearLayout>
 
     <View
+        android:id="@+id/plantPage_verticalLine"
         android:layout_width="2dp"
         android:layout_height="370dp"
         android:layout_marginStart="24dp"
@@ -228,6 +227,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:backgroundTint="@color/White"
         app:borderWidth="0dp"
-        android:elevation="6dp"/>
+        android:elevation="6dp"
+        android:src="@drawable/plus_green"
+        android:scaleType="center"/>
 
 </android.support.constraint.ConstraintLayout>

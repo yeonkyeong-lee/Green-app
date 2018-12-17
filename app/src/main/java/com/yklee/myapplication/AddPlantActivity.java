@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
@@ -38,6 +39,6 @@ public class AddPlantActivity extends Activity {
         startActivity(intent);
     }
     void SaveCurrData() {
-
+        // get views
     }
 }

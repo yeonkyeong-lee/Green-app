@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Green</string>
     <string name="search_hint">이름으로 검색하기</string>
+    <string name="editText_hint">내용을 입력하세요.</string>
 </resources>

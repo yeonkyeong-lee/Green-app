@@ -9,6 +9,7 @@
 
     <!--content-->
     <LinearLayout
+        android:id="@+id/addMemo_contentWrap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -36,33 +37,9 @@
             android:textColor="@color/TextColorGray"
             android:layout_marginTop="2dp"
             android:text="기록할 것이 없는 라벨은 X을 눌러 제거하세요."
+            android:visibility="gone"
             />
-
-        <!-- tags underneath is temp data-->
-
-        <com.yklee.myapplication.TagView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:tagName="물준날">
-        </com.yklee.myapplication.TagView>
-
-        <com.yklee.myapplication.TagView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:tagName="기온">
-        </com.yklee.myapplication.TagView>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="내용을 입력하세요."
-            android:textColor="@color/TextColor"
-            android:textColorHint="@color/TextColorGray"
-            android:theme="@style/EditTextStyle"/>
-
+        <!-- tags will added here programmatically -->
 
 
     </LinearLayout>

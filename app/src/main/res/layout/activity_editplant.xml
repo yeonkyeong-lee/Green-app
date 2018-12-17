@@ -161,41 +161,13 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="16dp"
             android:text="현재 메모 라벨들"/>
+
         <com.nex3z.flowlayout.FlowLayout
+            android:id="@+id/editPlant_tagWrap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <com.yklee.myapplication.TagView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:tagName = "물준 날"
-                app:closeButton="false"/>
-            <com.yklee.myapplication.TagView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:tagName = "물준 날"
-                app:closeButton="false"/>
-            <com.yklee.myapplication.TagView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:tagName = "물준 날"
-                app:closeButton="false"/>
-            <com.yklee.myapplication.TagView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:tagName = "물준 날"
-                app:closeButton="false"/>
-            <com.yklee.myapplication.TagView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:tagName = "물준 날"
-                app:closeButton="false"/>
-            <com.yklee.myapplication.TagView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:tagName = "물준 날"
-                app:closeButton="false"/>
 
         </com.nex3z.flowlayout.FlowLayout>
 

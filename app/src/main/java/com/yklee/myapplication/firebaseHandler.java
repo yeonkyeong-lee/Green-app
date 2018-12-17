@@ -10,6 +10,8 @@ import android.view.MenuItem;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -25,6 +27,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 
 
 public class firebaseHandler {
@@ -40,13 +43,14 @@ public class firebaseHandler {
     public static final String DB_FIELD_TAGNAMES = "tagNames";
 
     public static ArrayList<PlantItem> PlantList;
+    public static HashMap<String, String> tagRawData = new HashMap<>();
 
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    static FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public static void getAllData() {
         PlantList = new ArrayList<>();
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection(DB_COL_PLANTS)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -76,6 +80,8 @@ public class firebaseHandler {
                                     String rawData = document.getData().get(tags.get(i)).toString();
                                     ArrayList<MemoItem> memos_item = StringToMemos(rawData, tags.get(i));
                                     memos.addAll(memos_item);
+
+                                    tagRawData.put(tags.get(i), rawData);
                                 }
 
                                 PlantItem item = new PlantItem(name, bName);
@@ -91,6 +97,16 @@ public class firebaseHandler {
                         }
                     }
                 });
+    }
+
+    public static void addMemoItem(String dbID, String tagName, String date, String content) {
+        String prevData = tagRawData.get(tagName);
+        prevData = prevData.substring(0, prevData.length()-1);
+        String putData = prevData + ", " + date + "=" + content + "}";
+        DocumentReference docRef = db.collection(DB_COL_PLANTS).document(dbID);
+
+        docRef.update(tagName, putData);
+
     }
     static ArrayList<String> StringToArray(String input) {
         input = input.substring(1, input.length()-1);

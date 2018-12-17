@@ -81,6 +81,7 @@ public class PlantMainFragment extends Fragment {
                 Date d1 = memo1.getDate();
                 Date d2 = memo2.getDate();
                 Long diff = d1.getTime() - d2.getTime();
+
                 if(diff > 0 ) res = -1;
                 else if(diff == 0) res = 0;
                 else res = 1;
@@ -129,10 +130,12 @@ public class PlantMainFragment extends Fragment {
     }
     void ChangeActivity_toAddMemo() {
         Intent intent = new Intent(this.getActivity(), AddMemoActivity.class);
+        intent.putExtra("selected item", selectedPlant);
         startActivity(intent);
     }
     void ChangeActivity_toEditPlant() {
         Intent intent = new Intent(this.getActivity(), EditPlantActivity.class);
+        intent.putExtra("selected item", selectedPlant);
         startActivity(intent);
     }
 }
